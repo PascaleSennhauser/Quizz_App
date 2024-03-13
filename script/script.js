@@ -13,3 +13,8 @@ function showQuestion() {
         document.getElementById(`answer_${i}`).innerHTML = question[`answer_${i}`];
     }
 }
+
+
+function answer(selection) {
+    
+}

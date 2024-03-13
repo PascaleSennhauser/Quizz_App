@@ -2,6 +2,8 @@ body {
     background-color: #CCDC86 !important;
 }
 
+/* container */
+
 .container {
     min-height: 100vh;
     display: flex;
@@ -19,4 +21,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-top: 12px;
+}
+
+.quiz-answer-card:hover {
+    cursor: pointer;
+    background-color: rgba(126, 232, 235, 0.3);
 }
