@@ -1,0 +1,10 @@
+body {
+    background-color: #CCDC86 !important;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
