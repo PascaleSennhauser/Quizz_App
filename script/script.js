@@ -18,6 +18,11 @@ function startQuizz() {
 function showQuestion() {
     if (gameIsOver()) {
         showEndScreen();
+        if (rightQuestions == questions.length) {
+            showEndScreenWin();
+        } else {
+            showEndScreenLoose();
+        }
     } else {
         updateProgressBar();
         updateToNextQuestion();
@@ -51,6 +56,20 @@ function showEndScreenWin() {
             <img src="./assets/img/icon-corgi.png" class="winscreen-corgi">
             <img src="./assets/img/bone.png" class="winscreen-bone">     
         </div>
+    </div>
+    `;
+}
+
+
+function showEndScreenLoose() {
+    document.getElementById('endScreenText').innerHTML = 'Leider bekommt Coco keinen Knochen... Versuche es erneut!';
+    document.getElementById('cardImgTopContainer').innerHTML = /*html*/`
+    <div class="card-img-top-container-loosescreen">
+    <img src="./assets/img/icon-corgi.png" class="loosescreen-corgi">
+    <div class="thought-container">
+        <img src="./assets/img/thought-bubble.png" class="loosescreen-thought-bubble">
+        <img src="./assets/img/bone.png" class="loosescreen-bone">
+    </div>
     </div>
     `;
 }

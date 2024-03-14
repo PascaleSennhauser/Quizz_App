@@ -194,6 +194,38 @@ body {
     margin-bottom: 10px;
 }
 
+/* loose-screen */
+
+.card-img-top-container-loosescreen {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 20px;
+}
+
+.loosescreen-corgi {
+    height: 150px;
+}
+
+.thought-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 100px;
+}
+
+.loosescreen-thought-bubble {
+    height: 100px;
+}
+
+.loosescreen-bone {
+    position: absolute;
+    left: 25px;
+    top: 12px;
+    height: 50px;
+}
+
 /* text and button endscreen */
 
 .card-body-endscreen {
