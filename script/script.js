@@ -15,6 +15,10 @@ function showQuestion() {
         document.getElementById('amountOfQuestions').innerHTML = questions.length;
         document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
     } else {
+        let percent = (currentQuestion + 1) / questions.length;
+        percent = Math.round(percent * 100);
+        document.getElementById('progressBar').innerHTML = `${percent} %`;
+        document.getElementById('progressBar').style.width = `${percent}%`;
         let question = questions[currentQuestion];
         document.getElementById('questionText').innerHTML = question['question'];
         for (let i = 1; i <= 4; i++) {
@@ -100,4 +104,21 @@ function resetAnswerButtons() {
         document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-danger');
         document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-success');
     }
+}
+
+
+function restartGame() {
+    document.getElementById('cardImgTopContainer').innerHTML = /*html*/`
+        <img src="./assets/img/quiz.jpg" class="card-img-top">
+    `;
+    rightQuestions = 0;
+    currentQuestion = 0;
+    displayNoneEndScreen();
+    init();
+}
+
+
+function displayNoneEndScreen() {
+    document.getElementById('endScreen').style = 'display: none';
+    document.getElementById('questionBody').style = '';
 }
