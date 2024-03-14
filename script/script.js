@@ -1,4 +1,5 @@
 let currentQuestion = 0;
+let rightQuestions = 0;
 
 function init() {
     document.getElementById('allQuestions').innerHTML = questions.length;
@@ -11,6 +12,8 @@ function showQuestion() {
         document.getElementById('endScreen').style = '';
         document.getElementById('questionBody').style = 'display: none;';
         showEndScreenWin();
+        document.getElementById('amountOfQuestions').innerHTML = questions.length;
+        document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
     } else {
         let question = questions[currentQuestion];
         document.getElementById('questionText').innerHTML = question['question'];
@@ -45,6 +48,7 @@ function answer(selection) {
     let idOfRightAnswer = `answer_${question['right_answer']}`;
     if(selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
