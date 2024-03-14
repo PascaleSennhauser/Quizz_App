@@ -10,6 +10,11 @@ function init() {
 }
 
 
+function startQuizz() {
+    document.getElementById('startMenu').style = "display: none;";
+}
+
+
 function showQuestion() {
     if (gameIsOver()) {
         showEndScreen();
