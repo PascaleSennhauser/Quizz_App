@@ -2,6 +2,18 @@ body {
     background-color: #CCDC86 !important;
 }
 
+
+/* navbar */
+
+.impressum-privacy-policy a {
+    color: black;
+    text-decoration: none;
+}
+
+.impressum-privacy-policy a:hover {
+    text-decoration: underline;
+}
+
 /* container */
 
 .container {
@@ -13,6 +25,15 @@ body {
 
 .quiz-card {
     width: 30rem;
+    min-height: 670px;
+}
+
+#cardImgTopContainer {
+    height: 269.25px;
+}
+
+.card-title {
+    min-height: 48px;
 }
 
 .question-footer {
@@ -31,4 +52,69 @@ body {
 .bg-success,
 .bg-danger {
     color: white !important;
+}
+
+/* endscreen */
+
+/* win-screen */
+
+.card-img-top-container-winscreen {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.firework-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 8px 0 8px;
+}
+
+.firework {
+    height: 100px;
+}
+
+.dog-bone-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+.winscreen-corgi {
+    height: 150px;
+}
+
+.winscreen-bone {
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+/* text and button endscreen */
+
+.card-body-endscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-container-endscreen {
+    padding-top: 40px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+/* generische Klassen */
+
+.width-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
 }

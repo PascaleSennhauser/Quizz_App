@@ -7,11 +7,35 @@ function init() {
 
 
 function showQuestion() {
-    let question = questions[currentQuestion];
-    document.getElementById('questionText').innerHTML = question['question'];
-    for (let i = 1; i <= 4; i++) {
-        document.getElementById(`answer_${i}`).innerHTML = question[`answer_${i}`];
+    if (currentQuestion >= questions.length) {
+        document.getElementById('endScreen').style = '';
+        document.getElementById('questionBody').style = 'display: none;';
+        showEndScreenWin();
+    } else {
+        let question = questions[currentQuestion];
+        document.getElementById('questionText').innerHTML = question['question'];
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`answer_${i}`).innerHTML = question[`answer_${i}`];
+        }
+        document.getElementById('questionNumber').innerHTML = currentQuestion+1;
     }
+}
+
+
+function showEndScreenWin() {
+    document.getElementById('endScreenText').innerHTML = 'Gewonnen! Coco freut sich über den Knochen!';
+    document.getElementById('cardImgTopContainer').innerHTML = /*html*/`
+    <div class="card-img-top-container-winscreen">
+        <div class="firework-container">
+            <img src="./assets/img/firework.png" class="firework">
+            <img src="./assets/img/firework.png" class="firework"> 
+        </div>
+        <div class="dog-bone-container">
+            <img src="./assets/img/icon-corgi.png" class="winscreen-corgi">
+            <img src="./assets/img/bone.png" class="winscreen-bone">     
+        </div>
+    </div>
+    `;
 }
 
 
