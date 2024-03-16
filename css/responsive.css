@@ -1,0 +1,85 @@
+@media (max-width: 550px) {
+    /* start menu*/
+
+    .start-menu span {
+        width: 250px;
+        font-size: 18px;
+    }
+
+    .flower-blue-1 {
+        top: 1vh;
+    }
+    
+    .flower-blue-2 {
+        display: none;
+    }
+    
+    .flower-blue-3 {
+        bottom: 1vh;
+    }
+    
+    .flower-rose-1 {
+        top: 2vh;
+    }
+    
+    .flower-rose-2 {
+        display: none;
+    }
+    
+    .flower-rose-3 {
+        bottom: 1vh;
+        left: 2vh;
+    }
+
+    /* impressum and privacy-policy */
+
+    .back-arrow {
+        margin: 8px 8px 20px 8px;
+    }
+
+    .impressum-container,
+    .datenschutz-container {
+        margin: 0 8px 8px 8px;
+    }
+
+    .datenschutz-container h1 {
+        font-size: 20px;
+    }
+
+    .datenschutz-container h2 {
+        font-size: 18px;
+    }
+
+    .datenschutz-container h3 {
+        font-size: 16px;
+    }
+
+    .datenschutz-container p {
+        font-size: 12px;
+    }
+
+    .datenschutz-container li {
+        font-size: 12px;
+    }
+
+    /* container */
+
+    .container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .quiz-card {
+        height: 100vh !important;
+    }
+
+    .card-img-top {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-title {
+        font-size: 16px;
+        min-height: 58px;
+    }
+}

@@ -38,15 +38,19 @@ function gameIsOver() {
 function showEndScreen() {
     document.getElementById('endScreen').style = '';
     document.getElementById('questionBody').style = 'display: none;';
-    showEndScreenWin();
     document.getElementById('amountOfQuestions').innerHTML = questions.length;
     document.getElementById('amountOfRightQuestions').innerHTML = rightQuestions;
 }
 
 
 function showEndScreenWin() {
-    document.getElementById('endScreenText').innerHTML = 'Gewonnen! Coco freut sich über den Knochen!';
-    document.getElementById('cardImgTopContainer').innerHTML = /*html*/`
+    document.getElementById('cardImgTopContainer').innerHTML = winnerImageTemplate();
+    winnerText();
+}
+
+
+function winnerImageTemplate() {
+    return /*html*/ `
     <div class="card-img-top-container-winscreen">
         <div class="firework-container">
             <img src="./assets/img/firework.png" class="firework">
@@ -61,18 +65,42 @@ function showEndScreenWin() {
 }
 
 
+function winnerText() {
+    document.getElementById('endScreenText').innerHTML = 'Gewonnen! Coco freut sich über den Knochen!';
+}
+
+
 function showEndScreenLoose() {
-    document.getElementById('endScreenText').innerHTML = 'Leider bekommt Coco keinen Knochen... Versuche es erneut!';
-    document.getElementById('cardImgTopContainer').innerHTML = /*html*/`
+    document.getElementById('cardImgTopContainer').innerHTML = looserImageTemplate();
+    looserText();
+}
+
+
+function looserImageTemplate() {
+    return /*html*/`
     <div class="card-img-top-container-loosescreen">
-    <img src="./assets/img/icon-corgi.png" class="loosescreen-corgi">
-    <div class="thought-container">
-        <img src="./assets/img/thought-bubble.png" class="loosescreen-thought-bubble">
-        <img src="./assets/img/bone.png" class="loosescreen-bone">
-    </div>
+        <img src="./assets/img/icon-corgi.png" class="loosescreen-corgi">
+        <div class="thought-container">
+            <img src="./assets/img/thought-bubble.png" class="loosescreen-thought-bubble">
+            <img src="./assets/img/bone.png" class="loosescreen-bone">
+        </div>
     </div>
     `;
 }
+
+
+function looserText() {
+    document.getElementById('endScreenText').innerHTML = 'Leider bekommt Coco keinen Knochen... Versuche es erneut!';
+}
+
+
+function updateProgressBar() {
+    let percent = (currentQuestion + 1) / questions.length;
+    percent = Math.round(percent * 100);
+    document.getElementById('progressBar').innerHTML = `${percent} %`;
+    document.getElementById('progressBar').style.width = `${percent}%`;
+}
+
 
 
 function updateToNextQuestion() {
@@ -85,18 +113,17 @@ function updateToNextQuestion() {
 }
 
 
-function updateProgressBar() {
-    let percent = (currentQuestion + 1) / questions.length;
-    percent = Math.round(percent * 100);
-    document.getElementById('progressBar').innerHTML = `${percent} %`;
-    document.getElementById('progressBar').style.width = `${percent}%`;
-}
-
-
 function answer(selection) {
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
     let idOfRightAnswer = `answer_${question['right_answer']}`;
+    ifElseStatmentForCheckingTheAnswer(selectedQuestionNumber, question, selection, idOfRightAnswer);
+    document.getElementById('nextButton').disabled = false;
+    removeOnClick();
+}
+
+
+function ifElseStatmentForCheckingTheAnswer(selectedQuestionNumber, question, selection, idOfRightAnswer) {
     if(rightAnswerSelected(selectedQuestionNumber, question)) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
         AUDIO_RIGHT.play();
@@ -106,8 +133,6 @@ function answer(selection) {
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
         AUDIO_FALSE.play();
     }
-    document.getElementById('nextButton').disabled = false;
-    removeOnClick();
 }
 
 
